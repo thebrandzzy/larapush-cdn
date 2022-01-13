@@ -18,24 +18,26 @@
     </div>
   </div>
   <script>
-    seconds = 20
+    seconds = 10
     var reloadInterval = setInterval(function () {
       fetch('logs.php').then((res) => {
+        if (res.status === 404) {
+          clearInterval(reloadInterval)
+          var secondsInterval = setInterval(function () {
+            seconds--
+            document.getElementById('seconds').innerHTML = seconds
+            if (seconds === 0) {
+              clearInterval(secondsInterval)
+              window.location.reload()
+            }
+          }, 1000)
+          return '<br>Reloading in <span id="seconds">' + seconds + '</span> seconds...'
+        }
+
         return res.text()
       }).then(data => {
         document.getElementById('logs').innerHTML = data
-        if (data.includes('Restart')) {
-          clearInterval(reloadInterval)
-          setInterval(function () {
-            if (seconds == 0) {
-              window.location.reload()
-            } else {
-              seconds -= 1
-              document.getElementById('timer').innerHTML = seconds
-            }
-          }, 1000)
-        }
       })
-    }, 3000)
+    }, 3000);
   </script>
 </div>
