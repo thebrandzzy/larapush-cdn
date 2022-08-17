@@ -1,43 +1,62 @@
-<div style="padding: 0px; margin: 0px; font-family: monospace;">
-  <div
-    style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh; position: fixed; width: 100vw">
-    <h1
-      style="font-size: 85px;margin: 0;font-weight: 300; line-height: 1.1;color:grey;text-align: center; font-family: arial;">
-      <a href="https://larapush.com" style="text-decoration-color: #0067f5;"><span style="color:#0067f5; font-weight: bold;">LaraPush</span></a> is installing....
-    </h1>
-    <div style="text-align: center">
-      <img src="https://github.com/larapush/larapush/blob/main/uploads/animation.gif?raw=true" style="height: 400px;">
-    </div>
-  </div>
-  <div style="position: absolute;top: 0;color: grey;z-index: -5;">
-    <div id="logs">
+<!DOCTYPE html>
+<html lang="en">
 
-    </div>
-    <div style="text-align: center;">
-      <img src="https://github.com/larapush/larapush/blob/main/uploads/loading-opaque.gif?raw=true" style="height: 100px;">
-    </div>
-  </div>
-  <script>
-    seconds = 10
-    var reloadInterval = setInterval(function () {
-      fetch('logs.php').then((res) => {
-        if (res.status === 404) {
-          clearInterval(reloadInterval)
-          var secondsInterval = setInterval(function () {
-            seconds--
-            document.getElementById('seconds').innerHTML = seconds
-            if (seconds === 0) {
-              clearInterval(secondsInterval)
-              window.location.reload()
-            }
-          }, 1000)
-          return '<br>Reloading in <span id="seconds">' + seconds + '</span> seconds...'
-        }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex" />
+    <meta name="googlebot" content="noindex" />
+    <meta name="googlebot-news" content="noindex" />
+</head>
 
-        return res.text()
-      }).then(data => {
-        document.getElementById('logs').innerHTML = data
-      })
-    }, 3000);
-  </script>
-</div>
+<body>
+    <div style="padding: 0px; margin: 0px; font-family: monospace;">
+        <div
+            style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100vh; position: fixed; width: 100vw">
+            <h1
+                style="font-size: 85px;margin: 0;font-weight: 300; line-height: 1.1;color:grey;text-align: center; font-family: arial;">
+                <a href="https://larapush.com" style="text-decoration-color: #0067f5;"><span
+                        style="color:#0067f5; font-weight: bold;">LaraPush</span></a> is installing....
+            </h1>
+            <div style="text-align: center">
+                <img src="https://github.com/larapush/larapush/blob/main/uploads/animation.gif?raw=true"
+                    style="height: 400px;">
+            </div>
+        </div>
+        <div style="position: absolute;top: 0;color: grey;z-index: -5;">
+            <div id="logs">
+
+            </div>
+            <div style="text-align: center;">
+                <img src="https://github.com/larapush/larapush/blob/main/uploads/loading-opaque.gif?raw=true"
+                    style="height: 100px;">
+            </div>
+        </div>
+        <script>
+            seconds = 10
+            var reloadInterval = setInterval(function () {
+                fetch('logs.php').then((res) => {
+                    if (res.status === 404) {
+                        clearInterval(reloadInterval)
+                        var secondsInterval = setInterval(function () {
+                            seconds--
+                            document.getElementById('seconds').innerHTML = seconds
+                            if (seconds === 0) {
+                                clearInterval(secondsInterval)
+                                window.location.reload()
+                            }
+                        }, 1000)
+                        return '<br>Reloading in <span id="seconds">' + seconds + '</span> seconds...'
+                    }
+
+                    return res.text()
+                }).then(data => {
+                    document.getElementById('logs').innerHTML = data
+                })
+            }, 3000);
+        </script>
+    </div>
+</body>
+
+</html>
