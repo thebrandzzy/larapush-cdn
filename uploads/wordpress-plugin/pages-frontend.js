@@ -4,25 +4,26 @@ function getLarapushAdConfig() {
 	const targetClicksCount = 2;
 	const adInterval = 20;
 	const ad_id = 48348;
-	const currentClicksCount = localStorage.getItem("larapush_ad_" + ad_id + "_clicks") || 0;
 
 	// if last click was more than intervel ago reset clicks count
 	if (localStorage.getItem("larapush_ad_" + ad_id + "_last_time") == null || new Date().getTime() - localStorage.getItem("larapush_ad_" + ad_id + "_last_time") > adInterval * 1000) {
 		localStorage.setItem("larapush_ad_" + ad_id + "_clicks", 0);
 	}
 
+	const currentClicksCount = localStorage.getItem("larapush_ad_" + ad_id + "_clicks") || 0;
 	if (localStorage.getItem("larapush_ad_" + ad_id + "_last_time") == null || currentClicksCount < targetClicksCount) {
 		var timer = timer_to_be;
 		var advert = advert_to_be;
 	}
 
+	onCloseLaraPushAd = () => {
+		localStorage.setItem("larapush_ad_" + ad_id + "_clicks", parseInt(currentClicksCount) + 1);
+		localStorage.setItem("larapush_ad_" + ad_id + "_last_time", new Date().getTime());
+	};
+
 	return {
 		timer,
 		advert,
+		onCloseLaraPushAd,
 	};
 }
-
-const closeLaraPushAd = () => {
-	localStorage.setItem("larapush_ad_" + ad_id + "_clicks", parseInt(currentClicksCount) + 1);
-	localStorage.setItem("larapush_ad_" + ad_id + "_last_time", new Date().getTime());
-};
