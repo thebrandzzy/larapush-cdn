@@ -21,10 +21,15 @@ function getLarapushAdConfig() {
 		localStorage.setItem("larapush_ad_" + ad_id + "_last_time", new Date().getTime());
 	};
 
+	// return {
+	// 	timer,
+	// 	advert,
+	// 	onCloseLaraPushAd,
+	// };
 	return {
-		timer,
-		advert,
-		onCloseLaraPushAd,
+		timer: undefined,
+		advert: undefined,
+		onCloseLaraPushAd: undefined,
 	};
 }
 
@@ -50,4 +55,4 @@ function showAdInThePage() {
 	}
 }
 
-showAdInThePage();
+// showAdInThePage();
