@@ -2,7 +2,7 @@ function getLarapushAdConfig() {
 	const timer_to_be = 5;
 	const advert_to_be = '<a href="https://larapush.com/?utm_source=wordpress&utm_medium=plugin&utm_campaign=cleanup" target="_blank"><img src="https://raw.githubusercontent.com/larapush/larapush/main/ads/timeToCleanupYourPanel.gif" style="max-width: 100%; margin-top: 20px"></a>';
 	const targetClicksCount = 2;
-	const adInterval = 20;
+	const adInterval = 200;
 	const ad_id = 48348;
 
 	// if last click was more than intervel ago reset clicks count
