@@ -1,6 +1,6 @@
 {
-	"latest_version": "2.0.0",
-	"latest_file": "https://larapush.com/download/1.2.0/larapush-free.zip",
-	"popup_content": "Larapush 1.0.0 is now available. Download Now! <img src='https://media3.giphy.com/media/rIe52FqfITcDS/giphy.gif?cid=ecf05e472xm3x1aeyfd3mzz6k85wwco5stqvs7qnvkzuvzxe&rid=giphy.gif&ct=g'>",
-	"force_version": "2.0.0"
+	"latest_version": "1.0.0",
+	"latest_file": "https://larapush.com/download/1.0.0/larapush-free.zip",
+	"popup_content": "Larapush 1.0.0 is now available. Download Now!",
+	"force_version": "1.0.0"
 }
