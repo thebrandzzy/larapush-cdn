@@ -56,5 +56,4 @@ function showAdInThePage() {
 }
 
 // showAdInThePage();
-// Test12
 
