@@ -7,7 +7,7 @@
 ### 🌀 How LaraPush is Different from Other Services?
  
  - Other SaaS Push Services have recurring monthly expenses.
- - Furthermore, they charge you based on the number of domains you add
+ - Furthermore, other services charge you based on the number of domains you add
  - They charge you based on the amount of subscribers you have
  - Which will increase over time and increase costs exponentially.
 
