@@ -24,8 +24,7 @@ BUT 🍑
 
 ### 🌀 Do the Maths Yourself
 
-We have customers with over 20 Million Tokens.
-Using our services since multiple years.
+We have multiple customers with over 20 Million subscribers using our services since multiple years.
 
 #### SASS Services charges
 
@@ -41,8 +40,20 @@ Using our services since multiple years.
  > (Don't Believe? Check Pricing Page, Links Attached)
  
  <br>
+
+### 🌀 Larapush: All Enterprise-level features at a one-time price
+- All Startup Features like Unlimited Domains, Subscribers, Notifications ⭐
+- AutoMagic Push (Set it and forget it: Schedule daily random post notification from your blog) ⭐
+- Welcome Push
+- Push on Publish ⭐
+- 1 Click Push
+- Statistics and Segmentation based on URL ⭐
+- Speed Up to 1.5 Million per minute. 😲
+- 1 Click Import / Export 
+- Open API for Developer Integration ⭐
+- Server Status / Management
  
- ### 🌀 Are You Still Thinking?
+ ### 🌀 What Are You Still Thinking? Call Now!
  ✅ <a href="https://larapush.com/#demo" target="_blank">Take A Free Demo</a>
  📞 <a href="https://larapush.com/contact/" target="_blank">Contact Us for Any Enquiry</a>
  🌐 <a href="https://larapush.com/" target="_blank">Visit Our Website for More Info</a>
