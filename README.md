@@ -47,9 +47,10 @@ We have multiple customers with over 20 Million subscribers using our services s
 - Welcome Push
 - Push on Publish ⭐
 - 1 Click Push
-- Statistics and Segmentation based on URL ⭐
+- Statistics (Location, Device, OS and much more...)
+- Segmentation based on 6 Different parameters including url based.
 - Speed Up to 1.5 Million per minute. 😲
-- 1 Click Import / Export 
+- Import / Export Subscribers
 - Open API for Developer Integration ⭐
 - Server Status / Management
  
