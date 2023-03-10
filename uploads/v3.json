@@ -4,6 +4,6 @@
   "feedback_url": "https://larapush.com/contact/",
   "geolite2db": "https://ftp.larapush.com/GeoLite2-City.mmdb",
   "api_documentation": "https://documenter.getpostman.com/view/23586673/2s83f7HEHb",
-  "wordpress_plugin": "https://ftp.larapush.com/larapush-plugin.zip",
-  "welcome_push_as_drip": "https://larapush.com/features/",
+  "wordpress_plugin": "https://ftp.larapush.com/push-notifications-by-larapush.zip",
+  "welcome_push_as_drip": "https://larapush.com/features/"
 }
