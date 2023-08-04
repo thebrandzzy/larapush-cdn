@@ -49,8 +49,8 @@ $(document).ready(async function () {
     ) {
         var import_export_cache = localStorage.getItem("import_export_cache");
 
-        // Wait 2 seconds to load the data
-        await sleep(2000);
+        // Wait 1 second to load the data
+        await sleep(1000);
 
         // Check if the 'import_export_cache' exists and is not older than 7 days
         if (
