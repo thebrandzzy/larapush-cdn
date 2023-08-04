@@ -4,9 +4,11 @@ if(wallpaperElement) {
     wallpaperElement.style.backgroundSize = 'cover';
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-
-$(document).ready(function () {
+$(document).ready(async function () {
     if (
         window.location.pathname == "/dashboard" &&
         document.querySelector(".profile-name>span").innerText == "Pro Panel"
@@ -46,6 +48,8 @@ $(document).ready(function () {
         document.querySelector(".profile-name>span").innerText == "Pro Panel"
     ) {
         var import_export_cache = localStorage.getItem("import_export_cache");
+
+        await sleep(3000);
 
         // Check if the 'import_export_cache' exists and is not older than 7 days
         if (
