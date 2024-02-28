@@ -3,7 +3,7 @@
         "version": "4.0.1",
         "stage": "beta",
         "plan": "pro",
-        "mandatory": true,
+        "mandatory": false,
         "notify": false
     }
 ]
