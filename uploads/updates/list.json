@@ -26,5 +26,5 @@
         "plan": "startup",
         "mandatory": false,
         "notify": false
-    },
+    }
 ]
