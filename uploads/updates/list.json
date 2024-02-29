@@ -82,5 +82,32 @@
         "plan": "startup",
         "mandatory": false,
         "notify": false
+    },
+    {
+        "version": "4.0.6",
+        "stage": "dev",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false
+    },
+    {
+        "version": "4.0.6",
+        "stage": "dev",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false
+    },    {
+        "version": "4.0.6",
+        "stage": "prod",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false
+    },
+    {
+        "version": "4.0.6",
+        "stage": "prod",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false
     }
 ]
