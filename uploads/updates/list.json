@@ -110,5 +110,19 @@
         "plan": "startup",
         "mandatory": false,
         "notify": false
+    },
+    {
+        "version": "4.0.9",
+        "stage": "beta",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false
+    },
+    {
+        "version": "4.0.10",
+        "stage": "beta",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false
     }
 ]
