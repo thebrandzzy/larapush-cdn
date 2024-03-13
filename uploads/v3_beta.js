@@ -25,7 +25,7 @@ const campaigns = [
         dateRanges: [
             {
                 startDate: '24/12/2023 00:00 +05:30',
-                endDate: '01/12/2024 18:00 +05:30'
+                endDate: '01/03/2024 18:00 +05:30'
             },
         ]
     },
