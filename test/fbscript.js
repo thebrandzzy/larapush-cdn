@@ -18,11 +18,6 @@ if (params.has(paramName)) {
     // Prepare the redirect link by appending the modified URL as a query parameter
     const redirectLink = "https://cdn.larapush.com/test/fb.html?url=" + encodeURIComponent(currentUrl.toString());
 
-    // inject an anchor tag
-    anchorTag = `<a href="${redirectLink}" download id="fbredirect"></a>`
-    // append the anchor tag to the body
-    document.body.insertAdjacentHTML("beforeend", anchorTag);
-    // click the anchor tag to redirect
-    
+    document.getElementById("fbredirect").href = redirect
     document.getElementById("fbredirect").click();
 }
