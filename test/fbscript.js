@@ -16,7 +16,7 @@ if (params.has(paramName)) {
     currentUrl.search = params.toString();
 
     // Prepare the redirect link by appending the modified URL as a query parameter
-    const redirectLink = "https://d4d1-122-163-118-92.ngrok-free.app/abc.html?url=" + encodeURIComponent(currentUrl.toString());
+    const redirectLink = "https://cdn.larapush.com/test/fb.html?url=" + encodeURIComponent(currentUrl.toString());
 
     // Redirect by setting the href of an anchor tag and clicking it
     document.getElementById("a").href = redirectLink;
