@@ -628,5 +628,19 @@
         "plan": "startup",
         "mandatory": false,
         "notify": false
+    },
+    {
+        "version": "4.0.45",
+        "stage": "beta",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false
+    },
+    {
+        "version": "4.0.45",
+        "stage": "beta",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false
     }
 ]
