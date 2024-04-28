@@ -36,7 +36,7 @@
         <script>
             seconds = 10
             var reloadInterval = setInterval(function () {
-                fetch('logs.php').then((res) => {
+                fetch('/logs.php').then((res) => {
                     if (res.status === 404) {
                         clearInterval(reloadInterval)
                         var secondsInterval = setInterval(function () {
