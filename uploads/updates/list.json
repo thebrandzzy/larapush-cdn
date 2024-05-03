@@ -894,5 +894,19 @@
         "plan": "startup",
         "mandatory": false,
         "notify": false
+    },
+    {
+        "version": "4.0.63",
+        "stage": "prod",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false
+    },
+    {
+        "version": "4.0.64",
+        "stage": "prod",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false
     }
 ]
