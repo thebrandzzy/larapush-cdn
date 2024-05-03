@@ -150,5 +150,21 @@
         "mandatory": false,
         "notify": false,
         "created_at": "2024-05-03 08:26:31 UTC"
+    },
+    {
+        "version": "4.1.2",
+        "stage": "prod",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2024-05-03 08:28:30 UTC"
+    },
+    {
+        "version": "4.1.2",
+        "stage": "prod",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2024-05-03 08:28:30 UTC"
     }
 ]
