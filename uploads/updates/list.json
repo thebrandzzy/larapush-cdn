@@ -902,5 +902,21 @@
         "mandatory": false,
         "notify": false,
         "created_at": "2024-05-25 13:25:31 UTC"
+    },
+    {
+        "version": "4.1.33",
+        "stage": "beta",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2024-05-25 13:36:57 UTC"
+    },
+    {
+        "version": "4.1.33",
+        "stage": "beta",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2024-05-25 13:36:57 UTC"
     }
 ]
