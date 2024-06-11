@@ -5,7 +5,7 @@ const campaigns = [
         campaignID: '001',
         campaignName: 'Backup Campaign',
         campaignSlug: 'backup_campaign',
-        enabled: false,
+        enabled: true,
         dateRanges: [
             {
                 startDate: '23/11/2023 20:00 +05:30',
@@ -21,7 +21,7 @@ const campaigns = [
         campaignID: '002',
         campaignName: 'Feedback Campaign',
         campaignSlug: 'feedback_campaign',
-        enabled: false,
+        enabled: true,
         dateRanges: [
             {
                 startDate: '24/12/2023 00:00 +05:30',
@@ -29,18 +29,6 @@ const campaigns = [
             },
         ]
     },
-    {
-        campaignID: '003',
-        campaignName: 'Upgrade Campaign',
-        campaignSlug: 'upgrade_campaign',
-        enabled: true,
-        dateRanges: [
-            {
-                startDate: '10/05/2024 00:00 +05:30',
-                endDate: '10/05/2050 23:59 +05:30'
-            },
-        ]
-    }
     // Add more campaigns as needed
 ]
 
@@ -198,27 +186,4 @@ async function feedback_campaign(campaign) {
             window.open("https://bit.ly/3NFRMf1", "_blank");
         }
     });
-}
-
-async function upgrade_campaign(campaign) {
-    if (!isDashboard()) {
-        return;
-    }
-
-    const subscribersData = document.getElementById('subscribers-data');
-    if (subscribersData) {
-        const img = document.createElement('img');
-        img.src = 'https://cdn.larapush.com/uploads/v4_upgrade_banner.gif';
-        img.alt = 'Latest Upgrade';
-        img.style.cursor = 'pointer';
-        img.style.maxWidth = '100%';
-        img.style.marginBottom = '20px';
-        img.style.width = '1000px';
-        img.style.display = 'block';
-        img.style.marginLeft = 'auto';
-        img.style.marginRight = 'auto';
-        img.onclick = () => window.open('https://larapush.com/upgrade-checkout?product=version-upgrade&coupon=BA7JIYTW', '_blank');
-        
-        subscribersData.parentNode.insertBefore(img, subscribersData);
-    }
 }
