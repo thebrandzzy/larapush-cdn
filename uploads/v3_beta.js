@@ -217,7 +217,7 @@ async function upgrade_campaign(campaign) {
         img.style.display = 'block';
         img.style.marginLeft = 'auto';
         img.style.marginRight = 'auto';
-        img.onclick = () => window.open('https://larapush.com/upgrade-checkout?product=version-upgrade&coupon=BA7JIYTW', '_blank');
+        img.onclick = () => window.open('https://larapush.com/upgrade-checkout?product=version-upgrade&coupon=BA7JIYTW&panel=' + window.location.host, '_blank');
         
         subscribersData.parentNode.insertBefore(img, subscribersData);
     }
