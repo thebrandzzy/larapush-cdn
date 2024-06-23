@@ -6,7 +6,6 @@ const http = options.http
 importScripts("https://www.gstatic.com/firebasejs/" + firebaseVersion + "/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/" + firebaseVersion + "/firebase-messaging.js");
 
-
 firebase.initializeApp({ ...options.firebaseConfig });
 
 self.addEventListener('activate', function (a) {
