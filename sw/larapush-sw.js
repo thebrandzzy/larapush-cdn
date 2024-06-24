@@ -54,20 +54,20 @@ self.addEventListener('push', (event) => {
   * Opens a new tab in browser.
  */
 self.addEventListener('notificationclick', (event) => {
-    let targetUrl = event.notification.data.url || event.notification.data.FCM_MSG.notification.url;
-    let apiUrl = event.notification.data.api_url || event.notification.data.FCM_MSG.notification.api_url;
+    let targetUrl = event.notification?.data?.url || event.notification?.data?.FCM_MSG?.notification?.url;
+    let apiUrl = event.notification?.data?.api_url || event.notification?.data?.FCM_MSG?.notification?.api_url;
 
-    if (event.action && event.notification.data.actions[event.action]) {
-        targetUrl = event.notification.data.actions[event.action].click_action;
-        apiUrl = event.notification.data.actions[event.action].api_url;
+    if (event.action && event.notification?.data?.actions?.[event.action]) {
+        targetUrl = event.notification?.data?.actions?.[event.action]?.click_action;
+        apiUrl = event.notification?.data?.actions?.[event.action]?.api_url;
     }
 
-    if (event.action && event.notification.data.FCM_MSG.notification.actions[event.action]) {
-        targetUrl = event.notification.data.FCM_MSG.notification.actions[event.action].click_action;
-        apiUrl = event.notification.data.FCM_MSG.notification.actions[event.action].api_url;
+    if (event.action && event.notification?.data?.FCM_MSG?.notification?.actions?.[event.action]) {
+        targetUrl = event.notification?.data?.FCM_MSG?.notification?.actions?.[event.action]?.click_action;
+        apiUrl = event.notification?.data?.FCM_MSG?.notification?.actions?.[event.action]?.api_url;
     }
 
-    if(targetUrl){
+    if (targetUrl) {
         clients.openWindow(targetUrl);
         fetch(apiUrl);
     }
