@@ -9,5 +9,6 @@
   "add_service_account_to_domain_video": "https://www.youtube.com/watch?v=JlhDyZZT5bQ",
   "sp1_trigger": 50,
   "sp2_trigger": 50,
-  "sp3_trigger": 50
+  "sp3_trigger": 50,
+  "sw_version": "3.0.9"
 }
