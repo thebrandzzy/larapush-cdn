@@ -1078,5 +1078,21 @@
         "mandatory": false,
         "notify": false,
         "created_at": "2024-06-24 05:56:28 UTC"
+    },
+    {
+        "version": "4.1.41",
+        "stage": "beta",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2024-06-28 09:03:44 UTC"
+    },
+    {
+        "version": "4.1.41",
+        "stage": "beta",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2024-06-28 09:03:44 UTC"
     }
 ]
