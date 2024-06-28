@@ -1096,19 +1096,19 @@
         "created_at": "2024-06-28 09:03:44 UTC"
     },
     {
-        "version": "4.1.41",
-        "stage": "prod",
+        "version": "4.1.42",
+        "stage": "beta",
         "plan": "pro",
         "mandatory": false,
         "notify": false,
-        "created_at": "2024-06-28 10:37:43 UTC"
+        "created_at": "2024-06-28 10:56:41 UTC"
     },
     {
-        "version": "4.1.41",
-        "stage": "prod",
+        "version": "4.1.42",
+        "stage": "beta",
         "plan": "startup",
         "mandatory": false,
         "notify": false,
-        "created_at": "2024-06-28 10:37:43 UTC"
+        "created_at": "2024-06-28 10:56:41 UTC"
     }
 ]
