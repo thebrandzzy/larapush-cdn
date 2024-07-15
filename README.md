@@ -33,7 +33,7 @@ We have multiple customers with over 20 Million subscribers using our services s
  $290/Month per Million | $290 * 20 (million subs) | <b>$5,800.00</b> | Truepush | <a href="https://www.truepush.com/pricing" target="_blank">View Pricing</a>
  $3090/Month per Million | $3090 * 20 (million subs) | <b>$61,800.00</b> | One Signal | <a href="https://onesignal.com/pricing" target="_blank">View Pricing</a>
  $4000/Month per Million | $4000 * 20 (million subs) | <b>$80,000.00</b> | Gravitec | <a href="https://gravitec.net/pricing" target="_blank">View Pricing</a>
- $750/OneTime for Unlimited | $750 | <b>$750.00</b> | LaraPush | <a href="https://larapush.com/pricing/" target="_blank">View Pricing</a>
+ $799/OneTime for Unlimited | $799 | <b>$799.00</b> | LaraPush | <a href="https://larapush.com/pricing/" target="_blank">View Pricing</a>
  
  <br>
  
