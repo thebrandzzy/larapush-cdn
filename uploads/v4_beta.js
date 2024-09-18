@@ -123,43 +123,45 @@ function update_campaign(e) {
             var version = document.querySelector('footer.footer.w-100.notranslate > div > div > div:nth-child(1)').innerText.split('-')[2];
             if (version_compare(version, "4.1.49") < 0) {
                 // show the update button
-                Swal.fire({
-                    title: "Major Updates and Patches Available!",
-                    text: "We have released a new update with major features and bug fixes. Click the button below to update your system.",
-                    imageUrl: "https://cdn.larapush.com/uploads/feedback_alert.webp",
-                    imageWidth: 400,
-                    imageAlt: "Update Available",
-                    showCancelButton: 0,
-                    confirmButtonText: "Update Now",
-                    customClass: {
-                        confirmButton: "btn-block"
-                    },
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                }).then(a => {
-                    let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    fetch('/update-server', {
-                        method: 'POST',
-                        headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': csrf
-                        },
-                        body: JSON.stringify({})
-                    })
-
+                setTimeout(() => {
                     Swal.fire({
-                        title: 'System is Updating!',
-                        text: 'Server Upgrade Added to Queue, Please wait for a few minutes. Your server will be rebooted automatically.',
-                        icon: 'success',
-                        timer: 10000,
-                        timerProgressBar: true,
-                        showConfirmButton: false,
+                        title: "Major Updates and Patches Available!",
+                        text: "We have released a new update with major features and bug fixes. Click the button below to update your system.",
+                        imageUrl: "https://cdn.larapush.com/uploads/feedback_alert.webp",
+                        imageWidth: 400,
+                        imageAlt: "Update Available",
+                        showCancelButton: 0,
+                        confirmButtonText: "Update Now",
+                        customClass: {
+                            confirmButton: "btn-block"
+                        },
                         allowOutsideClick: false,
                         allowEscapeKey: false,
-                      }).then(function() {
-                        location.reload();
-                      });
-                })
+                    }).then(a => {
+                        let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                        fetch('/update-server', {
+                            method: 'POST',
+                            headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrf
+                            },
+                            body: JSON.stringify({})
+                        })
+
+                        Swal.fire({
+                            title: 'System is Updating!',
+                            text: 'Server Upgrade Added to Queue, Please wait for a few minutes. Your server will be rebooted automatically.',
+                            icon: 'success',
+                            timer: 10000,
+                            timerProgressBar: true,
+                            showConfirmButton: false,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                        }).then(function() {
+                            location.reload();
+                        });
+                    })
+                }, 1000);
             }
         }
     }
