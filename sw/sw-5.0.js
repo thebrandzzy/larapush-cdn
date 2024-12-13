@@ -202,7 +202,7 @@ async function subscribePushManager(url) {
 
             if ((await this.readData("notification_token")) != token) {
                 domain = options.domain;
-                if (http) {
+                if (options.http) {
                     domain = getDomainAndHostname(url).hostname;
                 }
 
@@ -330,7 +330,7 @@ async function updateSubscription() {
 
     // Get domain to send data to server
     domain = options.domain;
-    if (http) {
+    if (options.http) {
         domain = getDomainAndHostname(url).hostname;
     }
 
