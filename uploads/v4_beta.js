@@ -29,6 +29,15 @@ const campaigns = [{
         startDate: "18/09/2024 00:00 +05:30",
         endDate: "18/12/2024 00:00 +05:30"
     }]
+}, {
+    campaignID: "004",
+    campaignName: "Anniversary Campaign",
+    campaignSlug: "anniversary_campaign",
+    enabled: 1,
+    dateRanges: [{
+        startDate: "25/01/2025 00:00 +05:30",
+        endDate: "10/02/2025 00:00 +05:30"
+    }]
 }];
 if (wallpaperElement = document.querySelector(".auth.login-bg")) {
     let e = ["https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1475257026007-0753d5429e10?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1613333151276-8a5b9a9d3d00?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
@@ -181,3 +190,31 @@ $(document).ready(async function() {
                 }
             }
 });
+
+function anniversary_campaign(e){
+    if (window.location.pathname == "/") {
+        // Step 1: Find the image element with the class .login-logo
+        const loginLogo = document.querySelector('.login-logo');
+
+        // Step 1.5: Replace the src attribute
+        if (loginLogo) {
+            loginLogo.src = 'https://cdn.larapush.com/uploads/4_years_logo_animation.gif';
+            
+            // Step 2: Set the max-width to 100%
+            loginLogo.style.maxWidth = '100%';
+
+            // Step 4: Set the parent of the parent background color to #fcfcff
+            if (loginLogo.parentElement?.parentElement) {
+                loginLogo.parentElement.parentElement.style.backgroundColor = '#fcfcff';
+            }
+        }
+
+        // Step 5: Remove <h4> containing "LOGIN NOW"
+        const h4Elements = document.querySelectorAll('h4');
+        h4Elements.forEach(h4 => {
+            if (h4.textContent.trim() === 'LOGIN NOW') {
+                h4.remove();
+            }
+        });
+    }
+}
