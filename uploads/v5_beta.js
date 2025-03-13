@@ -3,35 +3,21 @@ const campaigns = [{
     campaignID: "001",
     campaignName: "Backup Campaign",
     campaignSlug: "backup_campaign",
-    enabled: !0,
+    enabled: !1,
     dateRanges: [{
         startDate: "23/11/2023 20:00 +05:30",
         endDate: "24/12/2023 00:00 +05:30"
     }, {
         startDate: "01/12/2024 18:00 +05:30",
         endDate: "01/12/2024 00:00 +05:30"
-    }, ]
-}, {
-    campaignID: "002",
-    campaignName: "Feedback Campaign",
-    campaignSlug: "feedback_campaign",
-    enabled: !0,
-    dateRanges: [{
-        startDate: "24/12/2023 00:00 +05:30",
-        endDate: "01/03/2024 18:00 +05:30"
-    }, ]
-}, {
-    campaignID: "003",
-    campaignName: "Update Campaign",
-    campaignSlug: "update_campaign",
-    enabled: 1,
-    dateRanges: [{
-        startDate: "18/09/2024 00:00 +05:30",
-        endDate: "18/12/2024 00:00 +05:30"
     }]
 }];
+
 if (wallpaperElement = document.querySelector(".auth.login-bg")) {
-    let e = ["https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1475257026007-0753d5429e10?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1613333151276-8a5b9a9d3d00?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    let e = [
+        "https://images.unsplash.com/photo-1734613414358-66038a779fed?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1741334632363-58022899ce91?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1593344352545-ffb4a9512528?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
         a = e[Math.floor(Math.random() * e.length)];
     wallpaperElement.style.background = `url(${a})`,
         wallpaperElement.style.backgroundSize = "cover"
@@ -78,94 +64,6 @@ async function backup_campaign(e) {
                 localStorage.setItem("import_export_cache_" + e.campaignID, moment().valueOf())
             })
     }
-}
-async function feedback_campaign(e) {
-    !(!isDashboard() || localStorage.getItem("feedback_done_" + e.campaignID)) && Swal.fire({
-        title: "We need your feedback!",
-        text: "Working hard on our latest update, we value your feedback! Spare a moment to fill out this form and be the first to get early notification of the latest update.",
-        imageUrl: "https://cdn.larapush.com/uploads/feedback_alert.webp",
-        imageWidth: 400,
-        imageAlt: "We need your feedback!",
-        showCancelButton: !1,
-        confirmButtonText: "Fill Form Now!",
-        cancelButtonText: "Remind Me Later",
-        customClass: {
-            confirmButton: "btn-block"
-        }
-    }).then(a => {
-        console.log(a),
-            a.value && (localStorage.setItem("feedback_done_" + e.campaignID, !0),
-                window.open("https://bit.ly/3NFRMf1", "_blank"))
-    })
-}
-
-function update_campaign(e) {
-    function version_compare(a, b) {
-        var a = a.split('.');
-        var b = b.split('.');
-        for (var i = 0; i < a.length; i++) {
-            if (a[i] > b[i]) {
-                return 1;
-            }
-            if (a[i] < b[i]) {
-                return -1;
-            }
-        }
-        return 0;
-    }
-
-
-    // check if the url has /dashboard in it
-    if (window.location.href.indexOf("/dashboard") > -1) {
-        // check if footer has pro-prod-4.* or pro-beta-4.* in it
-        if (document.querySelector('footer.footer.w-100.notranslate > div > div > div:nth-child(1)').innerText.indexOf("pro-prod-4.") > -1 || document.querySelector('footer.footer.w-100.notranslate > div > div > div:nth-child(1)').innerText.indexOf("pro-beta-4.") > -1) {
-            // get the version number and compare it to 4.1.49, if less than 4.1.49, show the update button
-            var version = document.querySelector('footer.footer.w-100.notranslate > div > div > div:nth-child(1)').innerText.split('-')[2];
-            if (version_compare(version, "4.1.49") < 0) {
-                // show the update button
-                setTimeout(() => {
-                    Swal.fire({
-                        title: "Major Updates and Patches Available!",
-                        text: "We have released a new update with major features and bug fixes. Click the button below to update your system.",
-                        imageUrl: "https://cdn.larapush.com/uploads/feedback_alert.webp",
-                        imageWidth: 400,
-                        imageAlt: "Update Available",
-                        showCancelButton: 0,
-                        confirmButtonText: "Update Now",
-                        customClass: {
-                            confirmButton: "btn-block"
-                        },
-                        allowOutsideClick: false,
-                        allowEscapeKey: false,
-                    }).then(a => {
-                        let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                        fetch('/update-server', {
-                            method: 'POST',
-                            headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrf
-                            },
-                            body: JSON.stringify({})
-                        })
-
-                        Swal.fire({
-                            title: 'System is Updating!',
-                            text: 'Server Upgrade Added to Queue, Please wait for a few minutes. Your server will be rebooted automatically.',
-                            icon: 'success',
-                            timer: 10000,
-                            timerProgressBar: true,
-                            showConfirmButton: false,
-                            allowOutsideClick: false,
-                            allowEscapeKey: false,
-                        }).then(function() {
-                            location.reload();
-                        });
-                    })
-                }, 1000);
-            }
-        }
-    }
-
 }
 
 $(document).ready(async function() {
