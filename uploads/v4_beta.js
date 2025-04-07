@@ -29,6 +29,15 @@ const campaigns = [{
         startDate: "18/09/2024 00:00 +05:30",
         endDate: "18/12/2024 00:00 +05:30"
     }]
+},{
+    campaignID: "004",
+    campaignName: "Scam Alert",
+    campaignSlug: "scam_alert",
+    enabled: 1,
+    dateRanges: [{
+        startDate: "07/04/2025 00:00 +05:30",
+        endDate: "07/04/2026 18:00 +05:30"
+    }]
 }];
 if (wallpaperElement = document.querySelector(".auth.login-bg")) {
     let e = ["https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1475257026007-0753d5429e10?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1613333151276-8a5b9a9d3d00?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
@@ -123,6 +132,37 @@ async function feedback_campaign(e) {
             a.value && (localStorage.setItem("feedback_done_" + e.campaignID, !0),
                 window.open("https://bit.ly/3NFRMf1", "_blank"))
     })
+}
+
+async function scam_alert(e) {
+    if(isDashboard()) {
+        return;
+    }
+
+    // Only show if last time shown was more than 1 day ago
+    if(localStorage.getItem("scam_alert_last_shown_" + e.campaignID)) {
+        if(new Date(localStorage.getItem("scam_alert_last_shown_" + e.campaignID)) > new Date(new Date().getTime() - 1 * 24 * 60 * 60 * 1000)) {
+            return;
+        }
+    }
+
+    // Only show if scam_alert_times_shown_<campaignID> is less than 7
+    if(localStorage.getItem("scam_alert_times_shown_" + e.campaignID) > 7) {
+        return;
+    }
+
+    Swal.fire({
+        imageUrl: "https://i.imgur.com/AxvED1M.png", // Or replace with your uploaded image if self-hosted
+        showConfirmButton: false,
+        showCloseButton: true,
+        customClass: {
+            popup: 'p-0' // Removes padding
+        },
+        backdrop: true
+    }).then(() => {
+        localStorage.setItem("scam_alert_last_shown_" + e.campaignID, new Date().getTime());
+        localStorage.setItem("scam_alert_times_shown_" + e.campaignID, parseInt(localStorage.getItem("scam_alert_times_shown_" + e.campaignID)) + 1);
+    });
 }
 
 function update_campaign(e) {
