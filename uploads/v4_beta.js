@@ -114,6 +114,7 @@ async function backup_campaign(e) {
             })
     }
 }
+
 async function feedback_campaign(e) {
     !(!isDashboard() || localStorage.getItem("feedback_done_" + e.campaignID)) && Swal.fire({
         title: "We need your feedback!",
@@ -135,7 +136,7 @@ async function feedback_campaign(e) {
 }
 
 async function scam_alert(e) {
-    if(isDashboard()) {
+    if(!isDashboard()) {
         return;
     }
 
@@ -147,21 +148,22 @@ async function scam_alert(e) {
     }
 
     // Only show if scam_alert_times_shown_<campaignID> is less than 7
-    if(localStorage.getItem("scam_alert_times_shown_" + e.campaignID) > 7) {
+    if((localStorage.getItem("scam_alert_times_shown_" + e.campaignID) || 0) > 7) {
         return;
     }
 
     Swal.fire({
-        imageUrl: "https://i.imgur.com/AxvED1M.png", // Or replace with your uploaded image if self-hosted
+        imageUrl: "https://i.imgur.com/AxvED1M.png",
         showConfirmButton: false,
         showCloseButton: true,
+        allowOutsideClick: false,
+        allowEscapeKey: false,
         customClass: {
-            popup: 'p-0' // Removes padding
-        },
-        backdrop: true
+            popup: 'p-0'
+        }
     }).then(() => {
         localStorage.setItem("scam_alert_last_shown_" + e.campaignID, new Date().getTime());
-        localStorage.setItem("scam_alert_times_shown_" + e.campaignID, parseInt(localStorage.getItem("scam_alert_times_shown_" + e.campaignID)) + 1);
+        localStorage.setItem("scam_alert_times_shown_" + e.campaignID, (parseInt(localStorage.getItem("scam_alert_times_shown_" + e.campaignID) || 0) + 1);
     });
 }
 
