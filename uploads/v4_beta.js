@@ -153,7 +153,7 @@ async function scam_alert(e) {
     }
 
     Swal.fire({
-        imageUrl: "https://i.imgur.com/AxvED1M.png",
+        imageUrl: "https://cdn.larapush.com/uploads/scam-alert.png",
         showConfirmButton: false,
         showCloseButton: true,
         allowOutsideClick: false,
