@@ -835,5 +835,29 @@
         "mandatory": false,
         "notify": false,
         "created_at": "2025-04-17 09:02:00 UTC"
+    },
+    {
+        "version": "5.1.8",
+        "stage": "beta",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2025-04-17 09:04:32 UTC"
+    },
+    {
+        "version": "5.1.8",
+        "stage": "beta",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2025-04-17 09:04:32 UTC"
+    },
+    {
+        "version": "5.1.8",
+        "stage": "beta",
+        "plan": "premium",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2025-04-17 09:04:32 UTC"
     }
 ]
