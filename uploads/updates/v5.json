@@ -2107,5 +2107,29 @@
         "mandatory": false,
         "notify": false,
         "created_at": "2025-10-09 09:30:42 UTC"
+    },
+    {
+        "version": "5.2.14",
+        "stage": "prod",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2025-10-09 10:53:35 UTC"
+    },
+    {
+        "version": "5.2.14",
+        "stage": "prod",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2025-10-09 10:53:35 UTC"
+    },
+    {
+        "version": "5.2.14",
+        "stage": "prod",
+        "plan": "premium",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2025-10-09 10:53:35 UTC"
     }
 ]
