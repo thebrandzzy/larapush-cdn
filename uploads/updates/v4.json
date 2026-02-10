@@ -1862,5 +1862,21 @@
         "mandatory": false,
         "notify": false,
         "created_at": "2025-11-29 07:26:43 UTC"
+    },
+    {
+        "version": "4.2.13",
+        "stage": "beta",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2026-02-10 05:29:27 UTC"
+    },
+    {
+        "version": "4.2.13",
+        "stage": "beta",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2026-02-10 05:29:27 UTC"
     }
 ]
