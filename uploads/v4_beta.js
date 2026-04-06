@@ -3,7 +3,7 @@ const campaigns = [{
     campaignID: "001",
     campaignName: "Backup Campaign",
     campaignSlug: "backup_campaign",
-    enabled: !0,
+    enabled: 0,
     dateRanges: [{
         startDate: "23/11/2023 20:00 +05:30",
         endDate: "24/12/2023 00:00 +05:30"
@@ -15,7 +15,7 @@ const campaigns = [{
     campaignID: "002",
     campaignName: "Feedback Campaign",
     campaignSlug: "feedback_campaign",
-    enabled: !0,
+    enabled: 0,
     dateRanges: [{
         startDate: "24/12/2023 00:00 +05:30",
         endDate: "01/03/2024 18:00 +05:30"
@@ -24,7 +24,7 @@ const campaigns = [{
     campaignID: "003",
     campaignName: "Update Campaign",
     campaignSlug: "update_campaign",
-    enabled: 1,
+    enabled: 0,
     dateRanges: [{
         startDate: "18/09/2024 00:00 +05:30",
         endDate: "18/12/2024 00:00 +05:30"
@@ -33,10 +33,20 @@ const campaigns = [{
     campaignID: "004",
     campaignName: "Scam Alert",
     campaignSlug: "scam_alert",
-    enabled: 1,
+    enabled: 0,
     dateRanges: [{
         startDate: "07/04/2025 00:00 +05:30",
         endDate: "07/04/2026 18:00 +05:30"
+    }]
+},
+{
+    campaignID: "005",
+    campaignName: "Feedback Campaign 2",
+    campaignSlug: "feedback_campaign_2",
+    enabled: 1,
+    dateRanges: [{
+        startDate: "19/05/2025 00:00 +05:30",
+        endDate: "19/07/2025 00:00 +05:30"
     }]
 }];
 if (wallpaperElement = document.querySelector(".auth.login-bg")) {
@@ -44,32 +54,6 @@ if (wallpaperElement = document.querySelector(".auth.login-bg")) {
         a = e[Math.floor(Math.random() * e.length)];
     wallpaperElement.style.background = `url(${a})`,
         wallpaperElement.style.backgroundSize = "cover"
-}
-
-if (window.location.pathname == "/") {
-    // Step 1: Find the image element with the class .login-logo
-    const loginLogo = document.querySelector('.login-logo');
-
-    // Step 1.5: Replace the src attribute
-    if (loginLogo) {
-        loginLogo.src = 'https://cdn.larapush.com/uploads/4_years_logo_animation.gif';
-        
-        // Step 2: Set the max-width to 100%
-        loginLogo.style.maxWidth = '100%';
-
-        // Step 4: Set the parent of the parent background color to #fcfcff
-        if (loginLogo.parentElement?.parentElement) {
-            loginLogo.parentElement.parentElement.style.backgroundColor = '#fcfcff';
-        }
-    }
-
-    // Step 5: Remove <h4> containing "LOGIN NOW"
-    const h4Elements = document.querySelectorAll('h4');
-    h4Elements.forEach(h4 => {
-        if (h4.textContent.trim() === 'LOGIN NOW') {
-            h4.remove();
-        }
-    });
 }
 
 function sleep(e) {
@@ -235,6 +219,31 @@ function update_campaign(e) {
     }
 
 }
+
+function feedback_campaign_2(e) {
+    if(!isDashboard()) {
+        return;
+    }
+
+    const subscribersData = document.getElementById('subscribers-data');
+    if (subscribersData) {
+        const img = document.createElement('img');
+        img.src = 'https://cdn.larapush.com/uploads/v4_upgrade_banner.gif';
+        img.alt = 'Latest Upgrade';
+        img.style.cursor = 'pointer';
+        img.style.maxWidth = '100%';
+        img.style.marginBottom = '20px';
+        img.style.width = '1000px';
+        img.style.display = 'block';
+        img.style.marginLeft = 'auto';
+        img.style.marginRight = 'auto';
+        img.onclick = () => window.open('https://larapush.com/upgrade-checkout?product=version-upgrade&coupon=BA7JIYTW&panel=' + window.location.host, '_blank');
+        
+        subscribersData.parentNode.insertBefore(img, subscribersData);
+    }
+    
+}
+
 
 $(document).ready(async function() {
     let e = moment();
