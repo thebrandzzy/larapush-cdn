@@ -2683,5 +2683,29 @@
         "mandatory": false,
         "notify": false,
         "created_at": "2026-04-17 09:50:56 UTC"
+    },
+    {
+        "version": "5.2.31",
+        "stage": "beta",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2026-04-20 06:02:09 UTC"
+    },
+    {
+        "version": "5.2.31",
+        "stage": "beta",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2026-04-20 06:02:09 UTC"
+    },
+    {
+        "version": "5.2.31",
+        "stage": "beta",
+        "plan": "premium",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2026-04-20 06:02:09 UTC"
     }
 ]
