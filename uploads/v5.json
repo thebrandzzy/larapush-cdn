@@ -14,8 +14,8 @@
   "ps_tier": {
     "zp_trigger": 3.0,
     "hp_trigger": 2.0,
-    "dp_tier": 2.5,
-    "vp_tier": 2.5,
+    "dp_trigger": 2.5,
+    "vp_trigger": 2.5,
     "default": 0.5
   },
   "sw_version": "5.0.1",
