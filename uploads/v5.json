@@ -11,7 +11,13 @@
   "sp1_trigger": 50,
   "sp2_trigger": 50,
   "sp3_trigger": 50,
-  "provider_rules_enc": "u8BEBP4CocvNWOIhOn9SrNV/iEuzOW5nOhJEVjDd+0bXOTxW7bRJnApMQIpoA1WlCKKJKrGriFWBhGJ3KXVP+hcqqlTjSCfJ48JHXGLvcHugRJQWv9iBIohijqdXxNqnJ9wU8iGRqpn6YFaqJjFZb9hXRplZnQr5XRGv3amTlIOudnMCHt5O7Kma5KHJCWQySg6IOOoWo74Oek1TFFLZmj1SFJVCoY6tYblw8CLX/piwe7rt0VJzNSFOtQtsvwT+V+Q4MER6/vyq3gqgrWAqOrrzPuJf5x8UmQV0DxzZnKN313b9rMKhzamjdSHkJPmeQn04pXNSGLCxWSTTBa+yvtnQUW6FamH1iXsRyrbMRsb53VhCF8IMX1P3QZntoq+CGNW+rvM27Cvke8/O53DkPri9j95O5ztayIcPVypAgvdroqtwrLh37Av/mxXorY4ezbfA1hBQU4VSQoJUEH3+yA==",
+  "ps_tier": {
+    "zp_trigger": 3.0,
+    "hp_trigger": 2.0,
+    "dp_tier": 2.5,
+    "vp_tier": 2.5,
+    "default": 0.5
+  },
   "sw_version": "5.0.1",
   "backup_guide": "https://drive.google.com/file/d/1w164Rk-KRLLj6z9urOo6YrUpMigo6qL5/view?usp=sharing"
 }
