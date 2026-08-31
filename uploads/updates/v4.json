@@ -1899,7 +1899,7 @@
         "version": "4.2.14",
         "stage": "prod",
         "plan": "pro",
-        "mandatory": false,
+        "mandatory": true,
         "notify": false,
         "created_at": "2026-08-31 09:13:46 UTC"
     },
@@ -1907,7 +1907,7 @@
         "version": "4.2.14",
         "stage": "prod",
         "plan": "startup",
-        "mandatory": false,
+        "mandatory": true,
         "notify": false,
         "created_at": "2026-08-31 09:13:46 UTC"
     }

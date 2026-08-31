@@ -3024,7 +3024,7 @@
         "version": "5.2.42",
         "stage": "prod",
         "plan": "pro",
-        "mandatory": false,
+        "mandatory": true,
         "notify": false,
         "created_at": "2026-08-31 09:13:38 UTC"
     },
@@ -3032,7 +3032,7 @@
         "version": "5.2.42",
         "stage": "prod",
         "plan": "startup",
-        "mandatory": false,
+        "mandatory": true,
         "notify": false,
         "created_at": "2026-08-31 09:13:38 UTC"
     },
@@ -3040,7 +3040,7 @@
         "version": "5.2.42",
         "stage": "prod",
         "plan": "premium",
-        "mandatory": false,
+        "mandatory": true,
         "notify": false,
         "created_at": "2026-08-31 09:13:39 UTC"
     }
