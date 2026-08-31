@@ -1910,5 +1910,21 @@
         "mandatory": true,
         "notify": false,
         "created_at": "2026-08-31 09:13:46 UTC"
+    },
+    {
+        "version": "4.2.15",
+        "stage": "prod",
+        "plan": "pro",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2026-08-31 13:37:26 UTC"
+    },
+    {
+        "version": "4.2.15",
+        "stage": "prod",
+        "plan": "startup",
+        "mandatory": false,
+        "notify": false,
+        "created_at": "2026-08-31 13:37:26 UTC"
     }
 ]
