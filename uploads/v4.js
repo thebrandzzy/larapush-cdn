@@ -1,9 +1,11 @@
 let wallpaperElement;const campaigns=[{campaignID:"001",campaignName:"Backup Campaign",campaignSlug:"backup_campaign",enabled:!0,dateRanges:[{startDate:"23/11/2023 20:00 +05:30",endDate:"24/12/2023 00:00 +05:30"},{startDate:"01/12/2024 18:00 +05:30",endDate:"01/12/2024 00:00 +05:30"}]},{campaignID:"002",campaignName:"Feedback Campaign",campaignSlug:"feedback_campaign",enabled:!0,dateRanges:[{startDate:"24/12/2023 00:00 +05:30",endDate:"01/03/2024 18:00 +05:30"}]},{campaignID:"003",campaignName:"Update Campaign",campaignSlug:"update_campaign",enabled:1,dateRanges:[{startDate:"18/09/2024 00:00 +05:30",endDate:"18/12/2024 00:00 +05:30"}]},{campaignID:"004",campaignName:"Scam Alert",campaignSlug:"scam_alert",enabled:1,dateRanges:[{startDate:"07/04/2025 00:00 +05:30",endDate:"27/10/2025 18:00 +05:30"}]}];if(wallpaperElement=document.querySelector(".auth.login-bg")){let e=["https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1475257026007-0753d5429e10?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D","https://images.unsplash.com/photo-1613333151276-8a5b9a9d3d00?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],t=e[Math.floor(Math.random()*e.length)];wallpaperElement.style.background=`url(${t})`,wallpaperElement.style.backgroundSize="cover"}if("/"==window.location.pathname&&new Date>=new Date("2025-01-26")&&new Date<=new Date("2025-02-10")){let e=document.querySelector(".login-logo");e&&(e.src="https://cdn.larapush.com/uploads/4_years_logo_animation.gif",e.style.maxWidth="100%",e.parentElement?.parentElement&&(e.parentElement.parentElement.style.backgroundColor="#fcfcff")),document.querySelectorAll("h4").forEach((e=>{"LOGIN NOW"===e.textContent.trim()&&e.remove()}))}function sleep(e){return new Promise((t=>setTimeout(t,e)))}function isDashboard(){return"/dashboard"==window.location.pathname}async function backup_campaign(e){if("/dashboard"==window.location.pathname&&"Pro Panel"==document.querySelector(".profile-name>span").innerText){var t=localStorage.getItem("backup_alert_"+e.campaignID);(null==t||moment().diff(moment(parseInt(t)),"days")>=7)&&Swal.fire({title:"Backup Your Data!",text:"Don't forget to regularly save your subscriber data. Click 'Export Now' to do this. This reminder will appear weekly.",imageUrl:"https://cdn.larapush.com/uploads/backup_alert.webp",imageWidth:400,imageAlt:"Backup Your Data",showCancelButton:!0,confirmButtonText:"Export Now",cancelButtonText:"Remind Me Later"}).then((t=>{console.log(t),t.value&&(localStorage.setItem("backup_alert_"+e.campaignID,moment().valueOf()),window.location.href="/integration/importNexport")}))}if("/integration/importNexport"==window.location.pathname&&"Pro Panel"==document.querySelector(".profile-name>span").innerText){var a=localStorage.getItem("import_export_cache_"+e.campaignID);await sleep(1e3),(null==a||moment().diff(moment(parseInt(a)),"days")>=7)&&introJs().setOptions({steps:[{element:document.querySelector(".btn-danger"),intro:"Click on this button to prepare your export."},{element:document.querySelector("#notificationDropdown").parentElement,intro:"⏬ Once your export is ready<br><br><b>Download Your Export from Here</b>"}],doneLabel:"OK"}).start().onchange((function(e){})).oncomplete((function(){localStorage.setItem("import_export_cache_"+e.campaignID,moment().valueOf())}))}}async function feedback_campaign(e){!isDashboard()||localStorage.getItem("feedback_done_"+e.campaignID)||Swal.fire({title:"We need your feedback!",text:"Working hard on our latest update, we value your feedback! Spare a moment to fill out this form and be the first to get early notification of the latest update.",imageUrl:"https://cdn.larapush.com/uploads/feedback_alert.webp",imageWidth:400,imageAlt:"We need your feedback!",showCancelButton:!1,confirmButtonText:"Fill Form Now!",cancelButtonText:"Remind Me Later",customClass:{confirmButton:"btn-block"}}).then((t=>{console.log(t),t.value&&(localStorage.setItem("feedback_done_"+e.campaignID,!0),window.open("https://bit.ly/3NFRMf1","_blank"))}))}function update_campaign(e){window.location.href.indexOf("/dashboard")>-1&&(document.querySelector("footer.footer.w-100.notranslate > div > div > div:nth-child(1)").innerText.indexOf("pro-prod-4.")>-1||document.querySelector("footer.footer.w-100.notranslate > div > div > div:nth-child(1)").innerText.indexOf("pro-beta-4.")>-1)&&0>function(e,t){e=e.split("."),t=t.split(".");for(var a=0;a<e.length;a++){if(e[a]>t[a])return 1;if(e[a]<t[a])return-1}return 0}(document.querySelector("footer.footer.w-100.notranslate > div > div > div:nth-child(1)").innerText.split("-")[2],"4.1.49")&&setTimeout((()=>{Swal.fire({title:"Major Updates and Patches Available!",text:"We have released a new update with major features and bug fixes. Click the button below to update your system.",imageUrl:"https://cdn.larapush.com/uploads/feedback_alert.webp",imageWidth:400,imageAlt:"Update Available",showCancelButton:0,confirmButtonText:"Update Now",customClass:{confirmButton:"btn-block"},allowOutsideClick:!1,allowEscapeKey:!1}).then((e=>{fetch("/update-server",{method:"POST",headers:{"Content-Type":"application/json","X-CSRF-TOKEN":document.querySelector('meta[name="csrf-token"]').getAttribute("content")},body:JSON.stringify({})}),Swal.fire({title:"System is Updating!",text:"Server Upgrade Added to Queue, Please wait for a few minutes. Your server will be rebooted automatically.",icon:"success",timer:1e4,timerProgressBar:!0,showConfirmButton:!1,allowOutsideClick:!1,allowEscapeKey:!1}).then((function(){location.reload()}))}))}),1e3)}async function scam_alert(e){if(!isDashboard())return;let t=localStorage.getItem("scam_alert_last_shown_"+e.campaignID);if(t){if(new Date(parseInt(t))>new Date((new Date).getTime()-864e5))return}!((localStorage.getItem("scam_alert_times_shown_"+e.campaignID)||0)>7)&&setTimeout((()=>{Swal.fire({imageUrl:"https://cdn.larapush.com/uploads/scam-alert.png",showConfirmButton:!1,showCloseButton:!0,allowOutsideClick:!1,allowEscapeKey:!1,customClass:{popup:"p-0"}}).then((()=>{localStorage.setItem("scam_alert_last_shown_"+e.campaignID,(new Date).getTime()),localStorage.setItem("scam_alert_times_shown_"+e.campaignID,parseInt(localStorage.getItem("scam_alert_times_shown_"+e.campaignID)||0)+1)}))}),200)}$(document).ready((async function(){let e=moment();for(let t of campaigns)if(t.enabled)for(let a of t.dateRanges){let o=moment(a.startDate,"DD/MM/YYYY HH:mm Z"),n=moment(a.endDate,"DD/MM/YYYY HH:mm Z");if(e.isBetween(o,n)&&"function"==typeof window[t.campaignSlug]){window[t.campaignSlug](t);break}}}));
 
-/* Security update campaign, added 27 Aug 2026.
-   Prompts any panel behind the newest build for its own plan+stage and fires the
-   same /update-server the Settings > Update button uses. Version is read from the
-   footer and the target from the CDN feed, so future releases need no edit here. */
+/* Security update campaign, added 27 Aug 2026, pinned 4 Sep 2026.
+   Prompts any panel below the build that closed the Aug 2026 compromise and fires
+   the same /update-server the Settings > Update button uses. Later releases stay
+   optional: bump LP_SECURITY_MIN_VERSION only when a build must reach every panel. */
+const LP_SECURITY_MIN_VERSION = { 4: "4.3.0", 5: "5.3.0" };
+const LP_UPDATE_WAIT_MS = 30 * 60 * 1000; // after one /update-server call, wait this long before firing another
 campaigns.push({
   campaignID: "005",
   campaignName: "Security Update Campaign",
@@ -37,23 +39,25 @@ async function security_update_campaign(campaign) {
   const major = parseInt(panel.version, 10);
   if (!major) return;
 
-  let latest = null;
-  try {
-    const bust = Math.floor(Date.now() / 60000); // 1 min, so a stale edge copy cannot pin this
-    const feed = await fetch(
-      "https://cdn.larapush.com/uploads/updates/v" + major + ".json?t=" + bust,
-      { cache: "no-store" }
-    ).then(function (r) { return r.json(); });
-    latest = feed
-      .filter(function (e) { return e.plan === panel.plan && e.stage === panel.stage; })
-      .map(function (e) { return e.version; })
-      .sort(lpCompareVersions)
-      .pop();
-  } catch (err) {
-    return; // feed unreachable, stay quiet rather than nag wrongly
-  }
-
+  const latest = LP_SECURITY_MIN_VERSION[major];
   if (!latest || lpCompareVersions(latest, panel.version) <= 0) return;
+
+  const startedKey = "security_update_started_" + campaign.campaignID;
+  const startedAt = parseInt(localStorage.getItem(startedKey) || "0", 10);
+  if (Date.now() - startedAt < LP_UPDATE_WAIT_MS) {
+    // an update is already running; the reload after the timer re-checks the footer version
+    Swal.fire({
+      title: "Updating your server...",
+      text: "The update to " + latest + " is in progress. Please wait, this page will check again in 30 seconds.",
+      timer: 30000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      didOpen: function () { Swal.showLoading(); }
+    }).then(function () { location.reload(); });
+    return;
+  }
 
   const choice = await Swal.fire({
     title: "Security Update Required",
@@ -79,6 +83,7 @@ async function security_update_campaign(campaign) {
   });
 
   let ok = false, message = "";
+  localStorage.setItem(startedKey, String(Date.now()));
   try {
     const res = await fetch("/update-server", {
       method: "POST",
@@ -107,6 +112,7 @@ async function security_update_campaign(campaign) {
       allowEscapeKey: false
     }).then(function () { location.reload(); });
   } else {
+    localStorage.removeItem(startedKey); // nothing started, so the next visit may try again
     // dismissible on failure, so a panel is never stuck behind a modal it cannot close
     Swal.fire({
       title: "Update could not start",
