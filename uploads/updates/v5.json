@@ -3093,7 +3093,7 @@
         "created_at": "2026-08-31 13:47:50 UTC"
     },
     {
-        "version": "5.3.1",
+        "version": "5.3.3",
         "stage": "prod",
         "plan": "pro",
         "mandatory": false,
@@ -3101,7 +3101,7 @@
         "created_at": "2026-09-05 13:12:19 UTC"
     },
     {
-        "version": "5.3.1",
+        "version": "5.3.3",
         "stage": "prod",
         "plan": "startup",
         "mandatory": false,
@@ -3109,7 +3109,7 @@
         "created_at": "2026-09-05 13:12:19 UTC"
     },
     {
-        "version": "5.3.1",
+        "version": "5.3.3",
         "stage": "prod",
         "plan": "premium",
         "mandatory": false,
