@@ -223,4 +223,6 @@ if (window.location.pathname === "/register") {
       '<a href="https://support.larapush.com" target="_blank" rel="noopener" class="alert-link" style="text-decoration:underline">support.larapush.com</a>'
     );
   });
+  // partials/message re-fires the first error as a toast on ready; the red box already shows it
+  $(function () { window.show_notify = function () {}; });
 }
