@@ -122,3 +122,86 @@ async function security_update_campaign(campaign) {
     });
   }
 }
+
+/* Service account keys campaign, added 12 Sep 2026.
+   After the Aug 2026 compromise every panel must regenerate its Firebase service account
+   keys. Nags on the dashboard, 5 minutes after each close, until the user ticks the box. */
+const LP_SA_VIDEOS = { en: "MO11aF5indI", hi: "-T_aT06LV98" };
+const LP_SA_SNOOZE_MS = 5 * 60 * 1000;
+campaigns.push({
+  campaignID: "006",
+  campaignName: "Service Account Keys Campaign",
+  campaignSlug: "service_account_keys_campaign",
+  enabled: 1,
+  dateRanges: [{ startDate: "12/09/2026 00:00 +05:30", endDate: "31/12/2027 23:59 +05:30" }]
+});
+
+function service_account_keys_campaign(campaign) {
+  if (!isDashboard()) return;
+  const doneKey = "service_account_keys_done_" + campaign.campaignID;
+  const closedKey = "service_account_keys_closed_" + campaign.campaignID;
+  const langKey = "service_account_keys_lang_" + campaign.campaignID;
+  if (localStorage.getItem(doneKey)) return;
+
+  if (!document.getElementById("lp-sa-style")) {
+    const style = document.createElement("style");
+    style.id = "lp-sa-style";
+    style.textContent =
+      ".lp-sa-icon{display:inline-flex;width:30px;height:30px;border-radius:50%;background:#f59e0b;color:#fff;font-size:20px;font-weight:700;align-items:center;justify-content:center;vertical-align:middle;margin:0 10px 4px 0}" +
+      ".lp-sa-text{margin:0 0 14px;color:#4b5563;font-size:14px;line-height:1.55;text-align:left}" +
+      ".lp-sa-lang{display:inline-flex;border:1px solid #d9dce3;border-radius:999px;padding:3px;margin-bottom:14px}" +
+      ".lp-sa-lang button{border:0;background:none;padding:6px 18px;border-radius:999px;font-size:13px;font-weight:600;color:#555;cursor:pointer;line-height:1.4}" +
+      ".lp-sa-lang button.active{background:#1f2937;color:#fff}" +
+      ".lp-sa-video{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000}" +
+      ".lp-sa-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}" +
+      ".lp-sa-popup .swal2-checkbox{margin:18px auto 6px;font-size:14px;color:#374151}";
+    document.head.appendChild(style);
+  }
+
+  const embed = function (lang) {
+    return "https://www.youtube.com/embed/" + LP_SA_VIDEOS[lang] + "?rel=0";
+  };
+
+  const show = function () {
+    if (localStorage.getItem(doneKey)) return;
+    if (Swal.isVisible()) { setTimeout(show, 60 * 1000); return; } // another popup is up (e.g. the update), retry later
+
+    const lang = LP_SA_VIDEOS[localStorage.getItem(langKey)] ? localStorage.getItem(langKey) : "en";
+    Swal.fire({
+      title: '<span class="lp-sa-icon">!</span>Regenerate your service account keys',
+      html:
+        '<p class="lp-sa-text">Recently there was a security incident that affected multiple panels. As a security precaution, we are requesting everyone to regenerate their service account keys.</p>' +
+        '<div class="lp-sa-lang">' +
+        '<button type="button" data-lang="en"' + (lang === "en" ? ' class="active"' : "") + ">English</button>" +
+        '<button type="button" data-lang="hi"' + (lang === "hi" ? ' class="active"' : "") + ">हिंदी</button>" +
+        "</div>" +
+        '<div class="lp-sa-video"><iframe src="' + embed(lang) + '" title="How to regenerate service account keys" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
+      input: "checkbox",
+      inputPlaceholder: "I have changed my service account keys",
+      confirmButtonText: "Close",
+      showCancelButton: false,
+      width: 640,
+      customClass: { popup: "lp-sa-popup", confirmButton: "btn-block" }
+    }).then(function (r) {
+      if (r.value === 1) {
+        localStorage.setItem(doneKey, String(Date.now()));
+        return;
+      }
+      localStorage.setItem(closedKey, String(Date.now()));
+      setTimeout(show, LP_SA_SNOOZE_MS);
+    });
+
+    document.querySelectorAll(".lp-sa-lang button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const next = btn.getAttribute("data-lang");
+        localStorage.setItem(langKey, next);
+        document.querySelectorAll(".lp-sa-lang button").forEach(function (b) { b.classList.toggle("active", b === btn); });
+        document.querySelector(".lp-sa-video iframe").src = embed(next);
+      });
+    });
+  };
+
+  const closedAt = parseInt(localStorage.getItem(closedKey) || "0", 10);
+  setTimeout(show, Math.max(0, closedAt + LP_SA_SNOOZE_MS - Date.now()));
+}
