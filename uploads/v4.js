@@ -212,3 +212,15 @@ function service_account_keys_campaign(campaign) {
   const closedAt = parseInt(localStorage.getItem(closedKey) || "0", 10);
   setTimeout(show, Math.max(0, closedAt + LP_SA_SNOOZE_MS - Date.now()));
 }
+
+/* Register page, added 12 Sep 2026: the license error text hardcodes larapush.com/contact in
+   every shipped panel, so the swap to a support.larapush.com link lives here, not in a release. */
+if (window.location.pathname === "/register") {
+  document.querySelectorAll(".alert-danger").forEach(function (el) {
+    if (el.textContent.indexOf("larapush.com/contact") === -1) return;
+    el.innerHTML = el.innerHTML.replace(
+      /https:\/\/larapush\.com\/contact\.?/g,
+      '<a href="https://support.larapush.com" target="_blank" rel="noopener" class="alert-link" style="text-decoration:underline">support.larapush.com</a>'
+    );
+  });
+}

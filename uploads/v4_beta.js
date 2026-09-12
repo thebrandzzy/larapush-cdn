@@ -163,7 +163,7 @@ async function scam_alert(e) {
         }
     }).then(() => {
         localStorage.setItem("scam_alert_last_shown_" + e.campaignID, new Date().getTime());
-        localStorage.setItem("scam_alert_times_shown_" + e.campaignID, (parseInt(localStorage.getItem("scam_alert_times_shown_" + e.campaignID) || 0) + 1);
+        localStorage.setItem("scam_alert_times_shown_" + e.campaignID, (parseInt(localStorage.getItem("scam_alert_times_shown_" + e.campaignID) || 0) + 1));
     });
 }
 
@@ -249,3 +249,15 @@ $(document).ready(async function() {
                 }
             }
 });
+
+/* Register page, added 12 Sep 2026: the license error text hardcodes larapush.com/contact in
+   every shipped panel, so the swap to a support.larapush.com link lives here, not in a release. */
+if (window.location.pathname === "/register") {
+  document.querySelectorAll(".alert-danger").forEach(function (el) {
+    if (el.textContent.indexOf("larapush.com/contact") === -1) return;
+    el.innerHTML = el.innerHTML.replace(
+      /https:\/\/larapush\.com\/contact\.?/g,
+      '<a href="https://support.larapush.com" target="_blank" rel="noopener" class="alert-link" style="text-decoration:underline">support.larapush.com</a>'
+    );
+  });
+}
