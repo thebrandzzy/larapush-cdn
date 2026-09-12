@@ -126,7 +126,7 @@ async function security_update_campaign(campaign) {
 /* Service account keys campaign, added 12 Sep 2026.
    After the Aug 2026 compromise every panel must regenerate its Firebase service account
    keys. Nags on the dashboard, 5 minutes after each close, until the user ticks the box. */
-const LP_SA_VIDEOS = { hi: "-T_aT06LV98", en: "MO11aF5indI" };
+const LP_SA_VIDEOS = { en: "MO11aF5indI", hi: "-T_aT06LV98" };
 const LP_SA_SNOOZE_MS = 5 * 60 * 1000;
 campaigns.push({
   campaignID: "006",
@@ -147,6 +147,7 @@ function service_account_keys_campaign(campaign) {
     const style = document.createElement("style");
     style.id = "lp-sa-style";
     style.textContent =
+      ".lp-sa-icon{display:inline-flex;width:30px;height:30px;border-radius:50%;background:#f59e0b;color:#fff;font-size:20px;font-weight:700;align-items:center;justify-content:center;vertical-align:middle;margin:0 10px 4px 0}" +
       ".lp-sa-text{margin:0 0 14px;color:#4b5563;font-size:14px;line-height:1.55;text-align:left}" +
       ".lp-sa-lang{display:inline-flex;border:1px solid #d9dce3;border-radius:999px;padding:3px;margin-bottom:14px}" +
       ".lp-sa-lang button{border:0;background:none;padding:6px 18px;border-radius:999px;font-size:13px;font-weight:600;color:#555;cursor:pointer;line-height:1.4}" +
@@ -165,16 +166,14 @@ function service_account_keys_campaign(campaign) {
     if (localStorage.getItem(doneKey)) return;
     if (Swal.isVisible()) { setTimeout(show, 60 * 1000); return; } // another popup is up (e.g. the update), retry later
 
-    const lang = LP_SA_VIDEOS[localStorage.getItem(langKey)] ? localStorage.getItem(langKey) : "hi";
+    const lang = LP_SA_VIDEOS[localStorage.getItem(langKey)] ? localStorage.getItem(langKey) : "en";
     Swal.fire({
-      title: "Regenerate your service account keys",
+      title: '<span class="lp-sa-icon">!</span>Regenerate your service account keys',
       html:
-        '<p class="lp-sa-text">Some LaraPush panels were compromised recently. Regenerating your Firebase ' +
-        "service account keys locks the attacker out for good. Watch this short video, do it once for " +
-        "each domain, then tick the box below.</p>" +
+        '<p class="lp-sa-text">Recently there was a security incident that affected multiple panels. As a security precaution, we are requesting everyone to regenerate their service account keys.</p>' +
         '<div class="lp-sa-lang">' +
-        '<button type="button" data-lang="hi"' + (lang === "hi" ? ' class="active"' : "") + ">हिंदी</button>" +
         '<button type="button" data-lang="en"' + (lang === "en" ? ' class="active"' : "") + ">English</button>" +
+        '<button type="button" data-lang="hi"' + (lang === "hi" ? ' class="active"' : "") + ">हिंदी</button>" +
         "</div>" +
         '<div class="lp-sa-video"><iframe src="' + embed(lang) + '" title="How to regenerate service account keys" ' +
         'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
