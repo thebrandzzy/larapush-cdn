@@ -154,12 +154,17 @@ function service_account_keys_campaign(campaign) {
       ".lp-sa-lang button.active{background:#1f2937;color:#fff}" +
       ".lp-sa-video{position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000}" +
       ".lp-sa-video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}" +
+      ".lp-sa-open{display:inline-block;margin-top:12px;padding:7px 16px;border:1px solid #d9dce3;border-radius:8px;font-size:13px;font-weight:600;color:#374151;text-decoration:none}" +
+      ".lp-sa-open:hover{background:#f3f4f6;color:#111827;text-decoration:none}" +
       ".lp-sa-popup .swal2-checkbox{margin:18px auto 6px;font-size:14px;color:#374151}";
     document.head.appendChild(style);
   }
 
   const embed = function (lang) {
     return "https://www.youtube.com/embed/" + LP_SA_VIDEOS[lang] + "?rel=0";
+  };
+  const watch = function (lang) {
+    return "https://www.youtube.com/watch?v=" + LP_SA_VIDEOS[lang];
   };
 
   const show = function () {
@@ -176,7 +181,8 @@ function service_account_keys_campaign(campaign) {
         '<button type="button" data-lang="hi"' + (lang === "hi" ? ' class="active"' : "") + ">हिंदी</button>" +
         "</div>" +
         '<div class="lp-sa-video"><iframe src="' + embed(lang) + '" title="How to regenerate service account keys" ' +
-        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
+        '<a class="lp-sa-open" href="' + watch(lang) + '" target="_blank" rel="noopener">Open in New Tab &#8599;</a>',
       input: "checkbox",
       inputPlaceholder: "I have changed my service account keys",
       confirmButtonText: "Close",
@@ -198,6 +204,7 @@ function service_account_keys_campaign(campaign) {
         localStorage.setItem(langKey, next);
         document.querySelectorAll(".lp-sa-lang button").forEach(function (b) { b.classList.toggle("active", b === btn); });
         document.querySelector(".lp-sa-video iframe").src = embed(next);
+        document.querySelector(".lp-sa-open").href = watch(next);
       });
     });
   };
